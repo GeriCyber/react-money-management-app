@@ -1,4 +1,5 @@
 import React, {Fragment, useState} from 'react';
+import Error from './Error';
 
 const BudgetForm = () => {
 
@@ -22,7 +23,7 @@ const BudgetForm = () => {
             setError(true);
             return;
         }
-
+        setError(false);
 
     }
 
@@ -35,6 +36,14 @@ const BudgetForm = () => {
                     placeholder="Add your montly budget"
                     onChange={setBudget}
                 />
+
+                {
+                    error ? 
+                    <Error message="Invalid budget quantity" />
+                    :
+                    null
+                }
+
                 <input type="submit"
                     className="button-primary u-full-width"
                     value="Save budget"

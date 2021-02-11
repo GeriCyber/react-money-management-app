@@ -15,6 +15,9 @@ header {
 .semi-strong {
   font-weight: 500;
 }
+.strong {
+  font-weight: 600;
+}
 .content {
   padding:20px;
 }
