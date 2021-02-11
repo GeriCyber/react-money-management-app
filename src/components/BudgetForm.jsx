@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import Error from './Error';
 
-const BudgetForm = ({setBudget, saveResiduary}) => {
+const BudgetForm = ({setBudget, saveResiduary, updateBudgetForm}) => {
 
     // Set quantity state
     const [quantity, saveQuantity] = useState(0);
@@ -26,6 +26,7 @@ const BudgetForm = ({setBudget, saveResiduary}) => {
         setError(false);
         setBudget(quantity);
         saveResiduary(quantity);
+        updateBudgetForm(false);
     }
 
     return (
