@@ -1,21 +1,21 @@
 import React, {Fragment, useState} from 'react';
 import Error from './Error';
 
-const BudgetForm = () => {
+const BudgetForm = ({setBudget, saveResiduary}) => {
 
-    // Set budget state
+    // Set quantity state
     const [quantity, saveQuantity] = useState(0);
 
     // Error state
     const [error, setError] = useState(false);
 
-    // On input changes update budget state
-    const setBudget = event => {
+    // On input changes update quantity state
+    const setQuantity = event => {
         saveQuantity(Number(event.target.value));
     }
 
     // Submit budget quantity
-    const addBudget = event => {
+    const addQuantity = event => {
         event.preventDefault();
         
         //Validate data
@@ -24,17 +24,18 @@ const BudgetForm = () => {
             return;
         }
         setError(false);
-
+        setBudget(quantity);
+        saveResiduary(quantity);
     }
 
     return (
         <Fragment>
             <h2 className="semi-strong">Set your budget</h2>
-            <form onSubmit={addBudget}>
+            <form onSubmit={addQuantity}>
                 <input type="number"
                     className="u-full-width"
-                    placeholder="Add your montly budget"
-                    onChange={setBudget}
+                    placeholder="Add your montly budget quantity"
+                    onChange={setQuantity}
                 />
 
                 {
